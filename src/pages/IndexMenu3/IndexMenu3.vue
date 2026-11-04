@@ -12,8 +12,7 @@ defineOptions({
 })
 const { proxy } = getCurrentInstance()
 
-// 无 props；原先写成 defineProps({}) 传空对象字面量，
-// 会让 vue-tsc 推导出与父组件调用不兼容的 props 类型，故改为无参写法。
+// 无 props
 defineProps()
 
 async function initData() {

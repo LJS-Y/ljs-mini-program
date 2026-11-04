@@ -14,12 +14,6 @@ const DEFAULT_USER_ROLE = '溯源小程序用户'
 
 /**
  * 初始态
- *
- * IUserInfo 的 systemUser.account/id/role/userName 与 wxUser.* 都是必填 string，
- * 但初始化时必然没有值。这里用 Record<string, any> 描述「占位空对象」，
- * 在使用处（如 userInfo.value 赋值）再按 IUserInfo 收敛。
- *
- * 注意：initState 原本缺 role 字段，此处补上，与 SysUserInfo 保持结构对齐。
  */
 const initState: Record<string, any> = {
   token: undefined,

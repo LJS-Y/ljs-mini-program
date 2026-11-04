@@ -17,12 +17,8 @@ defineOptions({
 const { proxy } = getCurrentInstance()
 
 /**
- * 收货地址表单数据
- *
- * 表单初始化时必须给齐字段（输入框要有初始值），所以这里声明为必填；
- * 但接口 ReceivingAddressInfo 的字段是可选的，回填时会做一次补空处理
- * （见 getInfo），保证 form.data 始终满足必填约束。
- * id 用于区分新增/修改（模板里 fieldCheck(form.data.id) 判断标题），新增时为 undefined。
+ * 收货地址表单
+ * id 为空表示新增
  */
 type AddressForm = {
   /** 地址主键；新增时为 undefined */

@@ -18,22 +18,13 @@ export const idForFile = (id: string) => {
 }
 
 /**
- * 拼接静态资源（图片 / 图标 / 字体）的完整 OSS 地址
- *
- * OSS 根域名来自环境变量 VITE_APP_OSS_BASE（见 env/.env.example），
- * 不写死在源码里，便于开源与多环境切换。
- *
- * - 传完整 URL（以 http:// 或 https:// 开头）时原样返回，不做拼接
- * - 传相对路径（如 '/weapp/mine/icon.png'）时拼到 OSS 根地址后面
- * - 根地址未配置时返回空字符串，此时远程图片不显示（本地可放 public/ 占位图）
- *
- * @param path 资源相对路径，建议以 / 开头
- * @returns 完整可访问的资源地址
- * @example ossUrl('/weapp/mine/mine-fuke.png')
+ * 拼接 OSS 资源地址
+ * @param path 相对路径
+ * @returns 完整地址
  */
 export const ossUrl = (path: string): string => {
   if (!path) return ''
-  // 已经是完整地址，直接用
+  // 已是完整地址
   if (/^https?:\/\//.test(path)) return path
   const base = (import.meta.env.VITE_APP_OSS_BASE || '').replace(/\/+$/, '')
   if (!base) return ''
@@ -41,42 +32,22 @@ export const ossUrl = (path: string): string => {
 }
 
 /**
- * 分享相关业务 
- * 
-const wineProducingShareIndex = ref(0)
-onShareAppMessage((res) => {
-  let path = `/pages/home/HomeIndex?source=wxShare&curTabBarName=${curTabBarName.value}`
-  if (curTabBarName.value === 'IndexMenu2') {
-    path += `&WineProducingIndex=${wineProducingShareIndex.value}`
-  }
-  return {
-    title: curTabBarName.value,
-    path,
-  }
-})
- */
-/**
  * 开启转发菜单
- * @param menus 需要显示的转发按钮名称列表
- *   - 'shareAppMessage' 转发给好友（默认）
- *   - 'shareTimeline'  分享到朋友圈
+ * @param menus 转发按钮列表
  */
 export function initShare(
   menus: UniNamespace.ShowShareMenuOptionsMenu[] = ['shareAppMessage'],
 ) {
   uni.showShareMenu({
     withShareTicket: true,
-    menus, // 开启转发好友和转发朋友圈按钮
+    menus,
   })
 }
 
 /**
- * web-view组件地址处理
- * @param options web-view组件onLoad接收的参数
- * @param options.share 是否为可转发、分享的页面，1可转发，0不可转发
- * @param options.url web-view url属性值
- * @param options.queryStr web-view url属性值对应的参数
- * @returns 返回一个url地址
+ * web-view 地址处理
+ * @param options web-view 参数
+ * @returns 拼接后的 url
  */
 export function webView(options) {
   let url = null
@@ -112,13 +83,13 @@ export function webView(options) {
 }
 
 /**
- * banner类跳转通用处理
- * @param jumpType 类型:参考字典jump_type 内部(pages) - inner , 内部(H5) - outer , 内部(视频) - HLSVideo , 外部 - wxApp
+ * banner 跳转通用处理
+ * @param jumpType inner / outer / HLSVideo / wxApp
  * @param jumpUrl 地址
- * @param shareText 分享title
- * @param shareImg 分享图片
- * @param jumpQuery 参数key数组，用于从原数据对象中获取数据，并将其放入参数中传入。在jumpType = inner或outer时有效
- * @returns 返回可获取的文件地址
+ * @param shareText 分享标题
+ * @param shareImg 分享图
+ * @param jumpQuery 取参字段
+ * @returns 文件地址
  */
 export function comBannerClick(
   params: Record<string, any>,
@@ -420,13 +391,11 @@ async function clearSavedFile() {
 }
 
 /**
- * 计算两个经纬度之间的距离（单位：米 / 千米）
- * @param {Object} lat1 第一个点纬度
- * @param {Number} lng1 第一个点经度
- * @param {Number} lat2 第二个点纬度
- * @param {Number} lng2 第二个点经度
- * @param {Boolean} isKm 是否返回千米（默认false，返回米）
- * @return 距离数值
+ * 计算两点距离
+ * @param point1 坐标 [lat, lng]
+ * @param point2 坐标 [lat, lng]
+ * @param isKm true 返回千米
+ * @returns 距离
  */
 export function getDistance(point1 = [], point2 = [], isKm = false) {
   if (point1.length !== 2 || point2.length !== 2) return null

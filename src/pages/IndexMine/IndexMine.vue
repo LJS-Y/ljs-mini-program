@@ -8,8 +8,7 @@ defineOptions({
 const { proxy } = getCurrentInstance()
 const emit = defineEmits(['phoneAuthorizeMine', 'contactCustomerServiceChange'])
 
-// 无 props；原先写成 defineProps({}) 传空对象字面量，
-// 会让 vue-tsc 推导出与父组件调用不兼容的 props 类型，故改为无参写法。
+// 无 props
 defineProps()
 
 // 用户信息、统计数据等可后续从接口获取
@@ -174,12 +173,8 @@ function pointsMallPower(url = '/pages-mine/Points/MakePointsIndex', msg = '积�
 }
 
 /**
- * 「我的」页功能入口项
- *
- * 两种形态（模板里用 v-if="item.icon !== null" 区分）：
- *   - 有 icon：显示图标（如「订单」「待发货」）
- *   - 无 icon（null）：显示积分数值（仅「积分」一项，point 为 computed）
- * 因此 point 可选。
+ * 「我的」入口项
+ * icon 为 null 时显示积分数值
  */
 type MineEntryItem = {
   /** 显示文字 */

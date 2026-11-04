@@ -27,23 +27,9 @@ const safeBottom = computed(() => {
 })
 /**
  * 底部 tabBar 配置
- *
- * 本项目是**自实现 tabBar**（不是 pages.json 的 nativeTabBar）。渲染逻辑在
- * `src/pages/home/HomeIndex.vue`，用 v-if 按 curTabBarName 切换 5 个页面组件：
- *
- *   IndexHome   → src/pages/IndexHome/IndexHome.vue    真实首页
- *   IndexMenu2  → src/pages/IndexMenu2/IndexMenu2.vue  ⚠️ 占位页（内容仅「菜单2」）
- *   IndexMenu3  → src/pages/IndexMenu3/IndexMenu3.vue  ⚠️ 占位页（内容仅「菜单3」）
- *   IndexMenu4  → src/pages/IndexMenu4/IndexMenu4.vue  ⚠️ 占位页（内容仅「菜单4」）
- *   IndexMine   → src/pages/IndexMine/IndexMine.vue    真实「我的」页
- *
- * 新项目接入时请按业务改写：
- *   1. 把 label 改成业务名称（现为「菜单2/3/4」占位）
- *   2. 把对应的 IndexMenuX.vue 换成真实页面内容（保留 route 块与外层 scroll-view 结构）
- *   3. svg 字段对应 src/static 下的图标名
- *   4. tab 数量增减时，同步改这里与 HomeIndex.vue 的 v-if 分支
- *
- * ⚠️ IndexMenu2/3/4 是 tab 容器，直接删除会导致对应 tab 白屏。
+ * 自实现 tabBar，非 pages.json 原生
+ * 渲染见 HomeIndex.vue 的 v-if 切换
+ * 增减 tab 需同步改 HomeIndex.vue
  */
 const tabList = ref([
   {

@@ -86,37 +86,11 @@ export const http = <T>(
 /**
  * GET 请求
  * @param url 后台地址
- * @param query 请求query参数
- * @param getFileTag 是否为文件，默认false
- * @param completeResTag false 正常流程 true 不处理数据直接返回，由业务自行处理
+ * @param query 请求 query 参数
+ * @param getFileTag 是否文件
+ * @param completeResTag true 返回完整响应
  * @param timeout 超时时间
- * @param timeoutHandleTag false 正常流程 true 不处理fail数据直接返回，由业务自行处理
- * @returns
- * 
- * timeoutHandleTag 示例： 
-  return http.get('/api/exhibition/wx/getExhibitionBannerManagerList', query, false, false, 10, true)
-  
-  try {
-    const data = await middBanner({
-      type: 'index',
-    })
-    if (!proxy.$LJSbase.fieldCheck(data)) {
-      data.forEach((item) => {
-        item.bannerImg_url = idForFile(item.bannerImg)
-      })
-      middBannerData.value = data
-    }
-  } catch (e) {
-    proxy.$LJSmsg.msg('活动有点火爆，请稍后再试', 3000)
-  }
- */
-/**
- * GET 请求
- *
- * completeResTag 会改变返回值形态（见 parseRestfulData）：
- *   false（默认）→ 拦截器解包，返回 T（业务数据本身）
- *   true        → 不解包，返回完整 IResData<T>（{ code, msg, data, rows }）
- * 下方用重载表达这个差异，避免调用方拿 T 当完整响应去取 code。
+ * @param timeoutHandleTag true 不处理 fail
  */
 export function httpGet<T>(
   url: string,
