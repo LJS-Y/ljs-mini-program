@@ -228,7 +228,8 @@ vite.config.ts         构建配置
 ## 文档
 
 - **Web 端 API 文档**：[ljs-y.github.io/ljs-vue3](https://ljs-y.github.io/ljs-vue3)
-- **AI 协作者约定**：见仓库根目录 `AGENTS.md`（或 `CLAUDE.md`，内容一致）
+- **AI 协作者约定**：见仓库根目录 `AGENTS.md`（或 `CLAUDE.md`，内容一致）——写代码前该读什么、红线在哪
+- **AI 机器可读说明**：见仓库根目录 `AI.md`——这个项目适不适合、怎么一次写对（含典型错误对照）
 
 ---
 
