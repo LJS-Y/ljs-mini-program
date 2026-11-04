@@ -97,6 +97,15 @@ class UserManager {
    * 检查是否需要登录后执行的动作
    */
   public async checkLoginFunc(func: Function = () => {}) {
+    // 调试开关：跳过登录校验，直接放行。
+    // 见 env/.env.local 的 VITE_APP_SKIP_LOGIN（默认 false，走下面的正常流程）。
+    // 启用后不调后端登录接口，页面与底部菜单可直接显示；
+    // 接口失败由请求拦截器静默处理。
+    if (import.meta.env.VITE_APP_SKIP_LOGIN === 'true') {
+      func()
+      return true
+    }
+
     // token是否存在
     if (this.checkLogin()) {
       // 检查token是否有效

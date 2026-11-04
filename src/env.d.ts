@@ -52,6 +52,12 @@ interface ImportMetaEnv {
   readonly VITE_APP_AI_WEBVIEW_URL: string
   /** 静态资源（图片 / 图标 / 字体）的 OSS 存储根地址，不带结尾斜杠 */
   readonly VITE_APP_OSS_BASE: string
+  /**
+   * 是否跳过登录校验（字符串布尔）
+   * - 'true'：不调后端登录，直接进入主界面，接口失败静默处理
+   * - 'false'：走正常微信登录流程
+   */
+  readonly VITE_APP_SKIP_LOGIN: string
 }
 
 interface ImportMeta {

@@ -5,6 +5,15 @@ import { MAIN_API_PATH } from '@/common/AppDefine'
 import { LJSbase, LJSrun, LJSmsg } from '@/uni_modules/ljs-sdk/js_sdk/index.js'
 import { requestEncrypt, responeDecrypt } from './smExecute'
 
+/**
+ * 是否处于「跳过登录」的调试模式（见 env 的 VITE_APP_SKIP_LOGIN）。
+ *
+ * 开启后接口仍照常发出，但所有错误提示静默：不弹 toast、不打印红色报错，
+ * 失败的请求按「空数据」resolve 给调用方。目的是让界面能正常渲染，
+ * 而不是被一个接一个的错误弹窗打断。
+ */
+const isSkipLoginMode = () => import.meta.env.VITE_APP_SKIP_LOGIN === 'true'
+
 export const http = <T>(
   options: CustomRequestOptions,
   getFileTag: boolean = false,
@@ -36,6 +45,11 @@ export const http = <T>(
           }
         } else {
           // 其他错误 -> 根据后端错误信息轻提示
+          // 跳过登录模式下静默：不弹提示，按空数据放行，避免界面被错误弹窗淹没
+          if (isSkipLoginMode()) {
+            resolve({} as T)
+            return
+          }
           !options.hideErrorToast &&
             uni.showToast({
               icon: 'none',
@@ -48,14 +62,21 @@ export const http = <T>(
       fail(err) {
         if (!timeoutHandleTag) {
           // {errMsg: "request:fail timeout", errno: undefined}
-          uni.showToast({
-            icon: 'none',
-            title: '网络错误，换个网络试试',
-          })
+          // 跳过登录模式下静默（后端未就绪时大量请求会失败，不应逐个弹窗）
+          if (!isSkipLoginMode()) {
+            uni.showToast({
+              icon: 'none',
+              title: '网络错误，换个网络试试',
+            })
+          }
         }
         useUserStore().setComLoadingState({
           open: false,
         })
+        if (isSkipLoginMode()) {
+          resolve({} as T)
+          return
+        }
         reject(err)
       },
     })
@@ -220,15 +241,22 @@ export const httpUpload = (
         if (res.statusCode === 200) {
           resolve(JSON.parse(res.data))
         } else {
-          uni.showToast({
-            icon: 'none',
-            title: '上传失败',
-          })
+          // 跳过登录模式下静默
+          if (!isSkipLoginMode()) {
+            uni.showToast({
+              icon: 'none',
+              title: '上传失败',
+            })
+          }
           // 失败时返回的不是标准结构，用 as 收敛到同一类型，由调用方按 code 判断
           resolve(res as unknown as IResData<{ id: string; url?: string; [key: string]: any }>)
         }
       },
       fail: (error) => {
+        if (isSkipLoginMode()) {
+          resolve({} as IResData<{ id: string; url?: string; [key: string]: any }>)
+          return
+        }
         reject(error)
       },
     })
@@ -287,6 +315,11 @@ function parseRestfulData<T>(
       // return resolve(httpData.data || httpData.rows || httpData.data == 0 ? httpData.data : false || httpData)
     }
   } else if (httpData.code === 401 || httpData.code === 403) {
+    // 跳过登录模式：未登录时几乎所有业务接口都会返回 401，
+    // 此时应静默放行（空数据），否则每个页面的 onLoad 都会收到 reject
+    if (isSkipLoginMode()) {
+      return resolve({} as T)
+    }
     console.error('报错接口：', `${MAIN_API_PATH}${options.url}`)
     console.error('错误信息：', httpData.msg)
     // 原版处理，返回reject，检测机制会调用登录接口，等待登录完成后处理业务
@@ -318,6 +351,10 @@ function parseRestfulData<T>(
     //   }, 5000)
     // }
   } else {
+    // 跳过登录模式：不刷红色报错、不弹提示，按空数据放行
+    if (isSkipLoginMode()) {
+      return resolve({} as T)
+    }
     console.error('报错接口：', `${MAIN_API_PATH}${options.url}`)
     console.error('错误信息：', httpData.msg)
     // token失效禁止提示窗消息
