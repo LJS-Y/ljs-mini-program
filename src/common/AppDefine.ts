@@ -1,6 +1,13 @@
 /**
- * 接口基础地址
- * 从环境变量读取，见 env/.env.example
+ * 接口基础地址配置
+ *
+ * 真实环境地址不放源码里，统一从环境变量读取（见 env/.env.example）：
+ *   VITE_API_BASE_URL_DEV   开发环境
+ *   VITE_API_BASE_URL_TEST  测试环境
+ *   VITE_API_BASE_URL_PROD  生产环境
+ *
+ * 取值优先级：环境变量 > 空字符串（空则请求走同域/拦截器默认路径）。
+ * 切换环境：改下面 MAIN_API_PATH 指向哪个，或直接注入对应环境变量。
  */
 
 const apiMap = {

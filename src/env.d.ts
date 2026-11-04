@@ -8,8 +8,12 @@ declare module '*.vue' {
 }
 
 /**
- * 环境变量类型
- * 值来源见 env/ 目录
+ * 环境变量类型声明
+ *
+ * 值的来源见 env/ 目录：
+ *   env/.env          公共默认值（提交）
+ *   env/.env.example  私有配置模板（提交）
+ *   env/.env.local    私有真实值（不提交，优先级最高）
  */
 interface ImportMetaEnv {
   /** 应用标题 */

@@ -19,8 +19,16 @@ import { wxSubscribeMessage } from '@/utils/base'
 import { pointUse } from '../utils/common'
 
 /**
- * 签到提醒模板 ID（示例）
- * 请替换为自己申请的模板
+ * 微信订阅消息模板 ID - 签到提醒
+ *
+ * 用途：用户点「明日提醒我签到」时，向微信申请订阅该模板消息；
+ *      同意后服务端可在次日推送签到提醒。
+ *
+ * 获取方式：微信公众平台 → 功能 → 订阅消息 → 选用模板 → 复制模板 ID
+ *          （模板 ID 是 43 位字符串，形如 Rg5E78xxxxxxxx...）
+ *
+ * ⚠️ 下面是**示例 ID**，接入时请替换为你自己申请的模板 ID。
+ *    用示例值调用微信会校验不通过（errCode 20001 模板不存在）。
  */
 const SUBSCRIBE_TMPL_SIGN_IN_REMIND = 'TMPL_ID_REPLACE_WITH_YOURS_SIGN_IN_REMIND'
 
@@ -165,7 +173,8 @@ async function getPointSignInRemind() {
   try {
     const { code, data } = await getSignInRemind()
     if (code === 200 && !proxy.$LJSbase.fieldCheck(data)) {
-      // 0/1 转 boolean
+      // 注：接口该字段返回的是数值（0/1），而 qdRemindTag 绑定的是开关组件
+      // （模板 v-model），语义上必须是 boolean，故此处显式转换。
       qdRemindTag.value = !!data
     }
   } catch (e) {
@@ -301,9 +310,10 @@ function getSignInButTop() {
   return new Promise((resolve) => {
     uni
       .createSelectorQuery()
-      .select('#signInBut')
+      .select('#signInBut') // 也可用 ref：`.select(targetElement.value.$el)`
       .boundingClientRect((data) => {
-        // 兼容单节点与数组
+        // select 单个节点时回调拿到的是 NodeInfo；类型上是 NodeInfo | NodeInfo[]，
+        // 这里按数组兜底取首项，避免联合类型直接取 .top 报错。
         const rect = Array.isArray(data) ? data[0] : data
         resolve(rect?.top) // 返回距离视口顶部的距离（滚动会影响此值）
       })

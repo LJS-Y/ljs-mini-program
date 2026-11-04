@@ -1,8 +1,17 @@
 import { http } from '@/utils/http'
 
 /**
- * 积分 / 签到 / 积分商城接口
- * 默认解包返回 data 本身
+ * 积分 / 签到 / 积分商城 相关接口
+ *
+ * 泛型约定（重要）
+ * --------------
+ * 本项目拦截器 parseRestfulData 的行为：
+ *   - 默认（completeResTag=false）：code 为 2xx 时**解包**，返回 data 本身 → 泛型写业务数据结构
+ *   - completeResTag=true：不解包，返回完整 { code, msg, data, rows } → 泛型写业务数据，
+ *     但类型层由 httpGet 重载标记为 IResData<T>，调用方需自行判断 code
+ *
+ * 后端字段按前端实际取用情况归纳，未用到的字段用索引签名兜底，
+ * 避免后端新增字段时频繁改类型。
  */
 
 // ===== 类型 =====

@@ -5,13 +5,7 @@ import { MAIN_API_PATH } from '@/common/AppDefine'
 import { LJSbase, LJSrun, LJSmsg } from '@/uni_modules/ljs-sdk/js_sdk/index.js'
 import { requestEncrypt, responeDecrypt } from './smExecute'
 
-/**
- * 是否处于「跳过登录」的调试模式（见 env 的 VITE_APP_SKIP_LOGIN）。
- *
- * 开启后接口仍照常发出，但所有错误提示静默：不弹 toast、不打印红色报错，
- * 失败的请求按「空数据」resolve 给调用方。目的是让界面能正常渲染，
- * 而不是被一个接一个的错误弹窗打断。
- */
+/** 跳过登录模式 */
 const isSkipLoginMode = () => import.meta.env.VITE_APP_SKIP_LOGIN === 'true'
 
 export const http = <T>(
@@ -45,7 +39,7 @@ export const http = <T>(
           }
         } else {
           // 其他错误 -> 根据后端错误信息轻提示
-          // 跳过登录模式下静默：不弹提示，按空数据放行，避免界面被错误弹窗淹没
+          // 跳过登录：静默放行
           if (isSkipLoginMode()) {
             resolve({} as T)
             return
@@ -62,7 +56,7 @@ export const http = <T>(
       fail(err) {
         if (!timeoutHandleTag) {
           // {errMsg: "request:fail timeout", errno: undefined}
-          // 跳过登录模式下静默（后端未就绪时大量请求会失败，不应逐个弹窗）
+          // 跳过登录：不弹网络错误
           if (!isSkipLoginMode()) {
             uni.showToast({
               icon: 'none',
@@ -86,11 +80,37 @@ export const http = <T>(
 /**
  * GET 请求
  * @param url 后台地址
- * @param query 请求 query 参数
- * @param getFileTag 是否文件
- * @param completeResTag true 返回完整响应
+ * @param query 请求query参数
+ * @param getFileTag 是否为文件，默认false
+ * @param completeResTag false 正常流程 true 不处理数据直接返回，由业务自行处理
  * @param timeout 超时时间
- * @param timeoutHandleTag true 不处理 fail
+ * @param timeoutHandleTag false 正常流程 true 不处理fail数据直接返回，由业务自行处理
+ * @returns
+ * 
+ * timeoutHandleTag 示例： 
+  return http.get('/api/exhibition/wx/getExhibitionBannerManagerList', query, false, false, 10, true)
+  
+  try {
+    const data = await middBanner({
+      type: 'index',
+    })
+    if (!proxy.$LJSbase.fieldCheck(data)) {
+      data.forEach((item) => {
+        item.bannerImg_url = idForFile(item.bannerImg)
+      })
+      middBannerData.value = data
+    }
+  } catch (e) {
+    proxy.$LJSmsg.msg('活动有点火爆，请稍后再试', 3000)
+  }
+ */
+/**
+ * GET 请求
+ *
+ * completeResTag 会改变返回值形态（见 parseRestfulData）：
+ *   false（默认）→ 拦截器解包，返回 T（业务数据本身）
+ *   true        → 不解包，返回完整 IResData<T>（{ code, msg, data, rows }）
+ * 下方用重载表达这个差异，避免调用方拿 T 当完整响应去取 code。
  */
 export function httpGet<T>(
   url: string,
@@ -215,7 +235,7 @@ export const httpUpload = (
         if (res.statusCode === 200) {
           resolve(JSON.parse(res.data))
         } else {
-          // 跳过登录模式下静默
+          // 跳过登录：不弹提示
           if (!isSkipLoginMode()) {
             uni.showToast({
               icon: 'none',
@@ -289,8 +309,7 @@ function parseRestfulData<T>(
       // return resolve(httpData.data || httpData.rows || httpData.data == 0 ? httpData.data : false || httpData)
     }
   } else if (httpData.code === 401 || httpData.code === 403) {
-    // 跳过登录模式：未登录时几乎所有业务接口都会返回 401，
-    // 此时应静默放行（空数据），否则每个页面的 onLoad 都会收到 reject
+    // 跳过登录：401 静默放行
     if (isSkipLoginMode()) {
       return resolve({} as T)
     }
@@ -325,7 +344,7 @@ function parseRestfulData<T>(
     //   }, 5000)
     // }
   } else {
-    // 跳过登录模式：不刷红色报错、不弹提示，按空数据放行
+    // 跳过登录：静默放行
     if (isSkipLoginMode()) {
       return resolve({} as T)
     }
