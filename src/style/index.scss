@@ -1,0 +1,180 @@
+:root,
+page {
+  // 修改按主题色
+  // --wot-color-theme: #580a37;
+}
+
+// 全局样式
+
+page {
+  font-family:
+    PingFang SC,
+    HarmonyOS Sans SC,
+    Microsoft YaHei,
+    Helvetica Neue,
+    Helvetica,
+    Tahoma,
+    Arial,
+    sans-serif;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #000;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+view,
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+image {
+  display: block;
+}
+
+.comListMore {
+  width: 100%;
+  padding: 32rpx 0;
+  .but {
+    width: calc(100% - 300rpx);
+    height: 64rpx;
+    margin: 0 auto;
+    line-height: 64rpx;
+    color: #c39e6a;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 40rpx;
+    box-shadow: 0 4rpx 8rpx 0rpx rgba(0, 0, 0, 0.1);
+    &.more {
+      color: #fff;
+      background-color: #872846;
+    }
+    &.null {
+      color: #999;
+    }
+  }
+  .nullImg {
+    width: 480rpx;
+    height: 298rpx;
+    margin: 0 auto;
+  }
+}
+.comPlaceholder {
+  font-size: 28rpx;
+  color: #bbbbbb;
+}
+.comPlaceholder-address {
+  font-size: 26rpx;
+  color: #b3b3b3;
+}
+.comFrame {
+  width: 100%;
+  height: 100vh;
+}
+.menuSeatBox {
+  width: 100%;
+  height: calc(152rpx + 20rpx + var(--window-bottom));
+}
+.seatBox {
+  width: 100%;
+  height: 20rpx;
+  background-color: #fafafa;
+  &.bottom {
+    height: calc(var(--window-bottom) + 40rpx);
+    background-color: #fff;
+    &.noBgColor {
+      background-color: transparent;
+    }
+  }
+}
+
+// 单行省略
+.comIgnore1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 2行省略
+.comIgnore2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+// 3行省略
+.comIgnore2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+// 弹窗通用样式
+.comOtherTc {
+  width: 100%;
+  height: 100%;
+  padding: 52rpx 48rpx 60rpx;
+  .title {
+    width: 100%;
+    font-size: 48rpx;
+    font-weight: 600;
+    line-height: 68rpx;
+    color: #2f3326;
+    text-align: center;
+  }
+  .dis {
+    width: 100%;
+    padding: 0 8rpx;
+    margin: 40rpx 0 60rpx;
+    font-size: 32rpx;
+    line-height: 44rpx;
+    color: #000;
+  }
+  .butBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    .but {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 80rpx;
+      margin-right: 32rpx;
+      font-size: 32rpx;
+      color: #fff;
+      background-color: #227351;
+      border: 2rpx solid #227351;
+      border-radius: 40rpx;
+      &:last-child {
+        margin-right: 0;
+      }
+      &.grey {
+        color: #999;
+        background-color: #eee;
+        border-color: #eee;
+      }
+      &.green1 {
+        color: #227351;
+        background-color: #fff;
+        border-color: #227351;
+      }
+    }
+  }
+}
+// top组件刷新按钮
+.comRefresh {
+  position: absolute;
+  left: 80rpx;
+  z-index: 2;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60rpx;
+  height: 60rpx;
+  padding: 10rpx;
+}

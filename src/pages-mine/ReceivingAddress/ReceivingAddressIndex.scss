@@ -1,0 +1,112 @@
+.nullBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  .pic {
+    width: 480rpx;
+    height: 440rpx;
+  }
+}
+.list {
+  width: 100%;
+  height: 100%;
+  padding: 0 22rpx 22rpx 22rpx;
+  overflow-y: auto;
+  .item {
+    padding: 20rpx 24rpx 16rpx 34rpx;
+    margin-bottom: 20rpx;
+    background-color: #fff;
+    border-radius: 12rpx;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      font-size: 30rpx;
+      line-height: 42rpx;
+      .defaultAddr {
+        display: flex;
+        align-items: center;
+        margin-right: 20rpx;
+        font-size: 26rpx;
+        color: #666;
+        .iconfont {
+          box-sizing: border-box;
+          width: 28rpx;
+          height: 28rpx;
+          margin-right: 6rpx;
+          font-size: 22rpx;
+          line-height: 28rpx;
+          color: transparent;
+          text-align: center;
+          border: 2rpx solid #ccc;
+          border-radius: 4rpx;
+        }
+        &.active {
+          .iconfont {
+            color: #fff;
+            background-color: #b7315d;
+            border-color: #b7315d;
+          }
+        }
+      }
+    }
+    .address {
+      margin-top: 14rpx;
+      font-size: 26rpx;
+      line-height: 36rpx;
+      color: #666;
+      word-break: break-all;
+    }
+    .bottom {
+      display: flex;
+      align-items: center;
+      margin-top: 32rpx;
+      .defaultAddr {
+        display: flex;
+        align-items: center;
+        font-size: 26rpx;
+        color: #666;
+        .iconfont {
+          box-sizing: border-box;
+          width: 28rpx;
+          height: 28rpx;
+          margin-right: 6rpx;
+          font-size: 22rpx;
+          line-height: 28rpx;
+          color: transparent;
+          text-align: center;
+          border: 2rpx solid #ccc;
+          border-radius: 50%;
+        }
+        &.active {
+          .iconfont {
+            color: #fff;
+            background-color: #227351;
+            border-color: #227351;
+          }
+        }
+      }
+      .operateBut {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        .del,
+        .edit {
+          width: 40rpx;
+          height: 40rpx;
+          font-size: 32rpx;
+          line-height: 40rpx;
+          color: #999;
+          text-align: center;
+        }
+        .del {
+          margin-right: 22rpx;
+        }
+      }
+    }
+  }
+}

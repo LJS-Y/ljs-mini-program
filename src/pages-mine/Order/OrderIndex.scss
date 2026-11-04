@@ -1,0 +1,94 @@
+.comMain {
+  background-color: #f1f3f5;
+  .types {
+    width: 100%;
+    height: 100rpx;
+    padding-top: 10rpx;
+    background-color: #f1f3f5;
+  }
+  .list {
+    width: 100%;
+    height: calc(100% - 100rpx);
+    padding: 0 20rpx;
+    overflow-y: auto;
+    .item {
+      margin-bottom: 24rpx;
+      background-color: #fff;
+      border-radius: 16rpx;
+      .title {
+        display: flex;
+        align-items: center;
+        height: 76rpx;
+        padding: 0 26rpx 0 18rpx;
+        line-height: 76rpx;
+        .no {
+          font-size: 26rpx;
+        }
+        .state {
+          margin-left: auto;
+          font-size: 24rpx;
+        }
+      }
+      .con {
+        padding: 0 32rpx 0 22rpx;
+        overflow: hidden;
+        .pic {
+          float: left;
+          width: 160rpx;
+          height: 160rpx;
+          margin-top: 8rpx;
+        }
+        .info {
+          float: left;
+          width: calc(100% - 182rpx);
+          margin-left: 22rpx;
+          .t {
+            display: -webkit-box;
+            height: 126rpx;
+            overflow: hidden;
+            font-size: 30rpx;
+            line-height: 42rpx;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+          }
+          .point {
+            font-size: 22rpx;
+            color: #eb422b;
+            border-radius: 12rpx;
+            .num {
+              margin-right: 10rpx;
+              font-size: 32rpx;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+      .line {
+        width: calc(100% - 32rpx * 2);
+        height: 2rpx;
+        margin: 24rpx auto 0;
+        background-color: #f0f0f0;
+      }
+      .bottom {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100rpx;
+        padding: 0 20rpx;
+        .t {
+          font-size: 28rpx;
+        }
+        .point {
+          font-size: 22rpx;
+          color: #eb422b;
+          border-radius: 12rpx;
+          .num {
+            margin-right: 10rpx;
+            font-size: 32rpx;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

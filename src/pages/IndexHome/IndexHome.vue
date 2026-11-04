@@ -1,0 +1,90 @@
+<script setup lang="ts">
+import { useUserStore } from '@/store'
+import { appPlatform, timeControl } from '@/utils/base'
+
+defineOptions({
+  name: 'IndexHome',
+})
+const { proxy } = getCurrentInstance()
+
+defineProps()
+
+async function initData() {
+  useUserStore().setComLoadingState({
+    open: true,
+  })
+  
+  await timeControl(2000)
+
+  useUserStore().setComLoadingState({
+    open: false,
+  })
+}
+
+const winW = ref(0) // 屏幕宽度
+const topHeight = ref(80) // 顶部top高度
+const topStateHeight = ref(0)
+// 处理IOS下拉空白问题 - 开始
+const comMainTouch = ref({
+  start: 0,
+  move: 0,
+  touch: false,
+  os: null,
+})
+// 处理IOS下拉空白问题 - 结束
+onMounted(async () => {
+  winW.value = uni.getWindowInfo().screenWidth
+  topStateHeight.value = uni.getWindowInfo().statusBarHeight
+  comMainTouch.value.os = await appPlatform()
+  initData()
+})
+
+function pxToRpx(value) {
+  return (750 / winW.value) * value
+}
+
+// 处理IOS下拉空白问题 - 开始
+function comMainTouchstart(e) {
+  if (comMainTouch.value.os === 'ios' && !comMainTouch.value.touch) {
+    comMainTouch.value.start = e.touches[0].clientY
+    comMainTouch.value.touch = true
+  }
+}
+function comMainTouchmove(e) {
+  if (comMainTouch.value.os === 'ios') {
+    const move = pxToRpx(e.touches[0].clientY - comMainTouch.value.start) / 3
+    // if (move > 200) move = 200
+    comMainTouch.value.move = move
+  }
+}
+function comMainTouchend(e) {
+  comMainTouch.value.move = 0
+  comMainTouch.value.touch = false
+}
+// 处理IOS下拉空白问题 - 开始
+</script>
+
+<template>
+  <ljs-top-vue3 title="LJS小程序" class="comTop" :topHeight="topHeight"></ljs-top-vue3>
+
+  <scroll-view
+    scroll-y
+    class="comMain"
+    :style="{
+      height: `calc(100vh - 80rpx - ${topStateHeight}px)`,
+      'margin-top': `calc(-1 * (${topHeight}rpx - 80rpx))`,
+      'background-color': `rgba(238, 238, 238, 1)`,
+    }"
+    @touchstart="comMainTouchstart"
+    @touchmove="comMainTouchmove"
+    @touchend="comMainTouchend"
+  >
+    首页
+    <!-- 占位 -->
+    <view class="menuSeatBox"></view>
+  </scroll-view>
+</template>
+
+<style scoped lang="scss">
+@use './IndexHome';
+</style>

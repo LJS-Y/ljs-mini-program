@@ -1,0 +1,133 @@
+.comFrame {
+  width: 100%;
+  height: 100vh;
+  background-color: #f3f6ff;
+  .comMain {
+    position: relative;
+    z-index: 1010;
+    box-sizing: border-box;
+    .title1 {
+      width: 100%;
+      padding: 20rpx 42rpx 0;
+      font-size: 48rpx;
+      font-weight: 600;
+      line-height: 68rpx;
+      color: #333;
+    }
+    .title2 {
+      width: 100%;
+      padding: 8rpx 42rpx 0;
+      font-size: 30rpx;
+      line-height: 42rpx;
+      color: #333;
+    }
+    .box {
+      width: calc(100% - 24rpx * 2);
+      padding: 28rpx 0 48rpx;
+      margin: 0 auto;
+      .questionType {
+        width: 100%;
+        padding: 36rpx 24rpx 18rpx;
+        margin-bottom: 20rpx;
+        background-color: #fff;
+        border-radius: 20rpx;
+        &.noMb {
+          margin-bottom: 0;
+        }
+        .text {
+          overflow: hidden;
+          font-size: 32rpx;
+          font-weight: 600;
+          line-height: 44rpx;
+          color: #333333;
+          .red {
+            color: #ff0000;
+          }
+          .length {
+            float: right;
+            font-size: 28rpx;
+            font-weight: 400;
+            color: #9e9e9e;
+          }
+        }
+        .con {
+          &.type {
+            margin-top: 22rpx;
+            overflow: hidden;
+            .item {
+              float: left;
+              height: 64rpx;
+              padding: 0 28rpx;
+              margin: 0 14rpx 14rpx 0;
+              font-size: 28rpx;
+              line-height: 64rpx;
+              background-color: #f3f3f3;
+              border-radius: 32rpx;
+              &.active {
+                color: #fff;
+                background-color: #3d75f8;
+              }
+            }
+          }
+          .textarea {
+            width: 100%;
+            height: 240rpx;
+            margin-top: 16rpx;
+            line-height: 40rpx;
+          }
+          :deep(.ljs-dragList) {
+            margin-top: 20rpx;
+          }
+          .tip {
+            margin-top: 20rpx;
+            font-size: 24rpx;
+            color: #bbbbbb;
+          }
+          :deep(.del) {
+            padding: 0;
+          }
+        }
+      }
+      .contactInformation {
+        padding: 34rpx 24rpx;
+        overflow: hidden;
+        background-color: #fff;
+        border-radius: 20rpx;
+        .text {
+          float: left;
+          width: 130rpx;
+          font-size: 32rpx;
+          color: #333333;
+        }
+        .input {
+          float: left;
+          width: calc(100% - 150rpx);
+          margin-left: 20rpx;
+        }
+      }
+      .help {
+        width: 100%;
+        margin-top: 34rpx;
+        font-size: 24rpx;
+        line-height: 34rpx;
+        color: #9e9e9e;
+        text-align: center;
+        .blue {
+          margin-left: 10rpx;
+          color: #3d75f8;
+        }
+      }
+      .submit {
+        width: 100%;
+        height: 88rpx;
+        margin-top: 56rpx;
+        font-size: 32rpx;
+        line-height: 88rpx;
+        color: #fff;
+        text-align: center;
+        background-color: #3d75f8;
+        border-radius: 44rpx;
+      }
+    }
+  }
+}

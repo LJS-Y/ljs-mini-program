@@ -1,0 +1,147 @@
+{
+  "globalStyle": {
+    "navigationStyle": "default",
+    "navigationBarTitleText": "LJS小程序",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFFFFF"
+  },
+  "easycom": {
+    "autoscan": true
+  },
+  "pages": [
+    {
+      "path": "pages/home/HomeIndex",
+      "type": "home",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "首页"
+      }
+    },
+    {
+      "path": "pages/IndexHome/IndexHome",
+      "type": "page"
+    },
+    {
+      "path": "pages/IndexMenu2/IndexMenu2",
+      "type": "page"
+    },
+    {
+      "path": "pages/IndexMenu3/IndexMenu3",
+      "type": "page"
+    },
+    {
+      "path": "pages/IndexMenu4/IndexMenu4",
+      "type": "page"
+    },
+    {
+      "path": "pages/IndexMine/IndexMine",
+      "type": "page"
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "pages-mine",
+      "pages": [
+        {
+          "path": "Order/OrderIndex",
+          "type": "page",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "订单"
+          }
+        },
+        {
+          "path": "Order/OrderInfo",
+          "type": "page",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "订单"
+          }
+        },
+        {
+          "path": "Points/MakePointsIndex",
+          "type": "page",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "红酒积分",
+            "backgroundColor": "#D3FCEC"
+          }
+        },
+        {
+          "path": "Points/PointsMallIndex",
+          "type": "page",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "红酒积分",
+            "backgroundColor": "#D3FCEC"
+          }
+        },
+        {
+          "path": "Points/PointsMallSuccess",
+          "type": "page",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "收货地址"
+          }
+        },
+        {
+          "path": "ReceivingAddress/ReceivingAddressForm",
+          "type": "page",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "收货地址"
+          }
+        },
+        {
+          "path": "ReceivingAddress/ReceivingAddressIndex",
+          "type": "page",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "收货地址"
+          }
+        },
+        {
+          "path": "UserFeedback/UserFeedback",
+          "type": "page",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "UserFeedback"
+          }
+        },
+        {
+          "path": "UserInfo/UserInfo",
+          "type": "page",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "UserInfo"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages-other",
+      "pages": [
+        {
+          "path": "PhoneAuthorizeAgreement/PhoneAuthorizeAgreement",
+          "type": "page",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "隐私保护指引"
+          }
+        },
+        {
+          "path": "WebView/WebView",
+          "type": "page",
+          "layout": "LJS小程序",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTitleText": "LJS小程序",
+            "navigationBarBackgroundColor": "#FFF",
+            "navigationBarTextStyle": "black"
+          }
+        }
+      ]
+    }
+  ]
+}

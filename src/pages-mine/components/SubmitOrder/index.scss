@@ -1,0 +1,191 @@
+.exchangeBoxTc {
+  width: 100%;
+  height: 100%;
+  padding: 0 30rpx;
+  overflow-y: auto;
+  background: linear-gradient(180deg, #edf8f3 0%, #ffffff 9%);
+  .title {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 116rpx;
+    border-bottom: 6rpx solid #f0f3f5;
+    .icon {
+      width: 40rpx;
+      height: 40rpx;
+      margin-left: 2rpx;
+      font-size: 40rpx;
+    }
+    .address {
+      width: calc(100% - 80rpx - 2rpx - 26rpx * 2);
+      margin-left: 26rpx;
+      &.no {
+        display: flex;
+        align-items: center;
+        .t {
+          font-size: 32rpx;
+          font-weight: 600;
+          color: #333;
+        }
+        .jt {
+          margin-left: 16rpx;
+          font-size: 22rpx;
+          color: #888;
+        }
+      }
+      &.yes {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .user {
+          display: flex;
+          align-items: center;
+          line-height: 42rpx;
+          .t {
+            display: flex;
+            align-items: center;
+            font-size: 30rpx;
+            color: #333;
+            .userName {
+              max-width: 300rpx;
+              line-height: 42rpx;
+            }
+          }
+          .jt {
+            margin-left: 16rpx;
+            font-size: 22rpx;
+            color: #888;
+          }
+        }
+        .addr {
+          overflow: hidden;
+          font-size: 26rpx;
+          line-height: 36rpx;
+          color: #666666;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+    .close {
+      width: 40rpx;
+      height: 40rpx;
+      margin-left: auto;
+      font-size: 30rpx;
+      color: #888888;
+    }
+  }
+  .con {
+    width: 100%;
+    overflow-y: auto;
+    .zw40 {
+      width: 100%;
+      height: 40rpx;
+    }
+    .goodsBox {
+      display: flex;
+      align-items: center;
+      .pic {
+        width: 200rpx;
+        height: 200rpx;
+      }
+      .point {
+        margin-left: 40rpx;
+        font-size: 30rpx;
+        color: #eb422b;
+        border-radius: 12rpx;
+        .num {
+          margin-right: 10rpx;
+          font-size: 44rpx;
+          font-weight: 600;
+        }
+      }
+    }
+    .name {
+      margin-top: 32rpx;
+      font-size: 32rpx;
+      line-height: 44rpx;
+    }
+    .infoBox {
+      display: flex;
+      align-items: center;
+      height: 60rpx;
+      margin-top: 86rpx;
+      .numText {
+        font-weight: 600;
+      }
+      .goodsCar {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        .limit {
+          margin-right: 24rpx;
+          font-size: 24rpx;
+          color: #eb422b;
+        }
+        .iconfont {
+          width: 60rpx;
+          height: 60rpx;
+          font-size: 36rpx;
+          line-height: 60rpx;
+          text-align: center;
+          background-color: #fafbfd;
+          border-radius: 50%;
+        }
+        .number {
+          width: 116rpx;
+          font-size: 24rpx;
+          font-weight: 600;
+          text-align: center;
+        }
+      }
+    }
+    .store {
+      margin-top: 40rpx;
+      .validityPeriod,
+      .disableDate {
+        margin-bottom: 20rpx;
+        font-size: 20rpx;
+        line-height: 36rpx;
+        color: #d2a784;
+      }
+    }
+  }
+  .but {
+    padding: 0 30rpx;
+    .butBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 80rpx;
+      border-radius: 40rpx;
+      &.submit {
+        color: #fff;
+        background-color: #d2a784;
+        .text {
+          font-weight: 600;
+          line-height: 36rpx;
+        }
+        .dis {
+          font-size: 20rpx;
+          line-height: 24rpx;
+        }
+      }
+      &.gray {
+        color: #666;
+        background-color: #eee;
+        .text {
+          font-weight: 600;
+          line-height: 36rpx;
+        }
+        .dis {
+          font-size: 20rpx;
+          line-height: 24rpx;
+        }
+      }
+    }
+  }
+}

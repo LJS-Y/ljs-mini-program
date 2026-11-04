@@ -1,0 +1,46 @@
+.StoreShow {
+  .t {
+    font-weight: 600;
+    line-height: 40rpx;
+  }
+  .c {
+    margin-top: 20rpx;
+    overflow: hidden;
+    .one {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      height: 50rpx;
+      margin: 0 16rpx 24rpx 0;
+      font-size: 24rpx;
+      line-height: 34rpx;
+      .name {
+        height: 50rpx;
+        padding: 0 16rpx;
+        line-height: 50rpx;
+        color: #333;
+        background-color: #fafbfd;
+        border-radius: 8rpx;
+      }
+      .iconfont {
+        width: 50rpx;
+        height: 50rpx;
+        font-size: 26rpx;
+        line-height: 50rpx;
+        color: #00ab64;
+        text-align: center;
+      }
+      &.active {
+        .name {
+          color: #fff;
+          background-color: #d2a784;
+        }
+      }
+    }
+    .null {
+      font-size: 24rpx;
+      color: #999;
+    }
+  }
+}

@@ -1,0 +1,89 @@
+.pointsTaskList {
+  .item {
+    display: flex;
+    align-items: center;
+    padding: 0 26rpx 60rpx;
+    .icon {
+      width: 100rpx;
+      height: 100rpx;
+      margin-right: 24rpx;
+      font-size: 48rpx;
+      line-height: 100rpx;
+      color: #00ab64;
+      text-align: center;
+      background-color: #edf7f3;
+      border-radius: 50%;
+    }
+    .info {
+      width: calc(100% - 124rpx - 152rpx);
+      .t {
+        font-size: 32rpx;
+        font-weight: 600;
+        line-height: 44rpx;
+        color: #000000;
+      }
+      .dis {
+        margin-top: 10rpx;
+        font-size: 24rpx;
+        line-height: 34rpx;
+        color: #666;
+      }
+      .rule {
+        display: inline-block;
+        margin-top: 2rpx;
+        overflow: hidden;
+        vertical-align: top;
+        background-color: #fffaf2;
+        border-radius: 18rpx;
+        .iconfont {
+          float: left;
+          width: 36rpx;
+          height: 36rpx;
+          margin-right: 8rpx;
+          font-size: 20rpx;
+          line-height: 36rpx;
+          color: #fff;
+          text-align: center;
+          background-color: #d2a784;
+          border-radius: 50%;
+        }
+        .ruleDis {
+          float: left;
+          padding-right: 14rpx;
+          font-size: 24rpx;
+          line-height: 36rpx;
+          color: #d2a784;
+        }
+      }
+      .validityDate {
+        display: flex;
+        align-items: center;
+        margin-top: 10rpx;
+        font-size: 20rpx;
+        line-height: 34rpx;
+        color: #666;
+        .iconfont {
+          margin-right: 10rpx;
+          font-size: 20rpx;
+        }
+      }
+    }
+    .but {
+      width: 132rpx;
+      height: 64rpx;
+      padding: 0;
+      margin-left: 20rpx;
+      font-size: 28rpx;
+      line-height: 60rpx;
+      color: #227351;
+      text-align: center;
+      background-color: #fff;
+      border: 2rpx solid #227351;
+      border-radius: 32rpx;
+      &.finish {
+        color: #999;
+        border-color: #e7e7e7;
+      }
+    }
+  }
+}

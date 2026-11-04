@@ -1,0 +1,149 @@
+.comTop {
+  position: relative;
+  z-index: 2;
+  .closeBox {
+    position: absolute;
+    top: 10rpx;
+    left: 20rpx;
+    z-index: 1010;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60rpx;
+    height: 60rpx;
+  }
+}
+.phone-authorize {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .left {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 750rpx;
+      height: 812px;
+      background-color: #e4d9f3;
+      filter: blur(200px);
+    }
+    .right {
+      position: absolute;
+      top: 50%;
+      left: -50%;
+      width: 750rpx;
+      height: 812px;
+      background-color: #a2d3fe;
+      filter: blur(200px);
+    }
+  }
+  .main {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    .logo {
+      width: 400rpx;
+      height: 286rpx;
+      margin-bottom: 80rpx;
+    }
+    .text1 {
+      margin-bottom: 24rpx;
+      font-size: 32rpx;
+      line-height: 44rpx;
+      color: #333;
+    }
+    .text2 {
+      margin-bottom: 248rpx;
+      font-size: 24rpx;
+      line-height: 34rpx;
+      color: #777;
+    }
+    .but {
+      width: 560rpx;
+      height: 96rpx;
+      font-size: 32rpx;
+      line-height: 96rpx;
+      color: #fff;
+      text-align: center;
+      background-color: #951c24;
+      border-radius: 48rpx;
+    }
+    .butMask {
+      width: 560rpx;
+      height: 96rpx;
+      font-size: 32rpx;
+      line-height: 96rpx;
+      color: #fff;
+      text-align: center;
+      background-color: #951c24;
+      border-radius: 48rpx;
+    }
+    .cancel {
+      width: 560rpx;
+      height: 96rpx;
+      margin-top: 32rpx;
+      font-size: 32rpx;
+      line-height: 96rpx;
+      color: #333;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 48rpx;
+    }
+
+    .termBox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 72rpx;
+      margin-top: 28rpx;
+      .iconBox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 52rpx;
+        height: 72rpx;
+        .iconfont {
+          width: 32rpx;
+          height: 32rpx;
+          font-size: 24rpx;
+          line-height: 28rpx;
+          color: transparent;
+          text-align: center;
+          background-color: transparent;
+          border: 2rpx solid #989bad;
+          border-radius: 50%;
+          &.active {
+            color: #fff;
+            background-color: #1daf64;
+            border-color: #1daf64;
+          }
+        }
+      }
+      .text {
+        line-height: 30rpx;
+        color: #999;
+        .blue {
+          color: #133667;
+        }
+      }
+    }
+  }
+}

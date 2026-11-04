@@ -1,0 +1,59 @@
+.myRewardTc {
+  width: calc(100% - 22rpx * 2);
+  height: calc(100% - var(--window-bottom) - 40rpx);
+  margin: 0 auto;
+  overflow-y: auto;
+  border-radius: 16rpx;
+  .item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 26rpx 20rpx;
+    margin-bottom: 28rpx;
+    background-color: #fff;
+    border-radius: 20rpx;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .iconfont {
+      width: 100rpx;
+      height: 100rpx;
+      font-size: 40rpx;
+      line-height: 100rpx;
+      color: #d2a784;
+      text-align: center;
+      background-color: #ece7e0;
+      border-radius: 50%;
+    }
+    .info {
+      margin-left: 22rpx;
+      .num {
+        font-size: 30rpx;
+        .green {
+          color: #227350;
+        }
+        .red {
+          color: #a00326;
+        }
+      }
+      .source {
+        font-size: 20rpx;
+      }
+      .date {
+        font-size: 20rpx;
+        color: #999;
+      }
+    }
+    .but {
+      height: 50rpx;
+      padding: 0 26rpx;
+      margin-left: auto;
+      font-size: 22rpx;
+      line-height: 46rpx;
+      color: #227350;
+      text-align: center;
+      border: 2rpx solid #227350;
+      border-radius: 25rpx;
+    }
+  }
+}

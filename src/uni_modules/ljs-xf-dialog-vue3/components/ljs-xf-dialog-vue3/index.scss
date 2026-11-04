@@ -1,0 +1,38 @@
+.ljs-xf-dialog-vue3{
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow-y: auto;
+	.ljs-xf-dialog-vue3-box{
+		position: absolute;
+		overflow: hidden;
+		opacity: 0;
+		.ljs-xf-dialog-vue3-title{
+			width: 100%;
+			padding: 0 30upx;
+			box-sizing: border-box;
+			position: relative;
+			.ljs-xf-dialog-vue3-close{
+				width: 90upx;
+				height: 90upx;
+				text-align: center;
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 30upx;
+				box-sizing: border-box;
+			}
+		}
+		>.ljs-xf-dialog-vue3-content{
+			width: 100%;
+			overflow: hidden;
+		}
+		>.ljs-xf-dialog-vue3-butBox{
+			width: 100%;
+			padding: 30upx;
+			box-sizing: border-box;
+		}
+	}
+}

@@ -1,0 +1,644 @@
+.comMain {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, #d3fcec 0%, #f0f3f5 60%);
+  .information {
+    position: relative;
+    width: 100%;
+    height: 200rpx;
+    padding: 32rpx 44rpx 0;
+    .name {
+      font-size: 34rpx;
+      font-weight: 600;
+      line-height: 48rpx;
+    }
+    .points {
+      display: flex;
+      align-items: center;
+      margin-top: 6rpx;
+      color: #d2a784;
+      .iconfont {
+        font-size: 40rpx;
+        line-height: 58rpx;
+      }
+      .num {
+        margin-left: 18rpx;
+        font-size: 58rpx;
+        line-height: 58rpx;
+        &.w4 {
+          width: auto;
+          font-size: 40rpx;
+        }
+        .unit {
+          font-size: 30rpx;
+        }
+      }
+      .but {
+        padding: 0 18rpx;
+        margin-left: 20rpx;
+        line-height: 48rpx;
+        color: #227351;
+        border: 2rpx solid #227351;
+        border-radius: 24rpx;
+      }
+    }
+    .pic {
+      position: absolute;
+      top: 0;
+      right: 42rpx;
+      width: 192rpx;
+      height: 210rpx;
+    }
+  }
+  .calendar {
+    width: calc(100% - 24rpx * 2);
+    margin: 4rpx auto 0;
+    border-radius: 16rpx;
+    .title {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 96rpx;
+      .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 415rpx;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-size: auto 100%;
+      }
+      .t {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 380rpx;
+        height: 96rpx;
+        padding-top: 14rpx;
+        font-size: 32rpx;
+        font-weight: 600;
+        line-height: 58rpx;
+        color: #000;
+        .num {
+          margin: 0 14rpx;
+        }
+        .jt {
+          width: 70rpx;
+          height: 70rpx;
+          font-size: 18rpx;
+          line-height: 70rpx;
+          text-align: center;
+        }
+      }
+      .rightBut {
+        position: absolute;
+        right: 0;
+        bottom: -14rpx;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 334rpx;
+        height: 92rpx;
+        padding-bottom: 14rpx;
+        background: linear-gradient(90deg, #e9fdf5 0%, #f8fffc 100%);
+        border-radius: 0 16rpx 0 0;
+        box-shadow: inset 0px 2px 8px 0px #ffffff;
+        .icon {
+          width: 32rpx;
+          height: 32rpx;
+        }
+        .name {
+          margin-left: 16rpx;
+          line-height: 28rpx;
+          color: #333333;
+        }
+        .jt {
+          margin-left: 24rpx;
+          font-size: 24rpx;
+          line-height: 28rpx;
+          color: #000000;
+        }
+      }
+    }
+    .con {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      min-height: 40rpx;
+      overflow: hidden;
+      background-color: #fff;
+      border-radius: 0 16rpx 16rpx 16rpx;
+      .other {
+        height: calc(100% - 26rpx);
+        margin-top: 36rpx;
+        background-color: #fff;
+        .weeks {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 11rpx;
+          line-height: 60rpx;
+          .item {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            font-size: 24rpx;
+            color: #666;
+          }
+        }
+        .days {
+          display: flex;
+          flex-wrap: wrap;
+          padding: 0 16rpx 0;
+          margin-top: 28rpx;
+          .item {
+            display: flex;
+            justify-content: center;
+            width: calc(100% / 7);
+            margin-bottom: 32rpx;
+            // &:nth-child(8),
+            // &:nth-child(9),
+            // &:nth-child(10),
+            // &:nth-child(11),
+            // &:nth-child(12),
+            // &:nth-child(13),
+            // &:nth-child(14) {
+            //   margin-bottom: 0;
+            // }
+            .bg {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              width: calc(100% - 14rpx * 2);
+              height: 132rpx;
+              overflow: hidden;
+              background-color: #faebd7;
+              border-radius: 29rpx;
+              .day {
+                display: flex;
+                justify-content: center;
+                width: 58rpx;
+                height: 58rpx;
+                margin: 6rpx;
+                font-size: 28rpx;
+                line-height: 58rpx;
+                color: #000;
+                text-align: center;
+                background-color: #fcfcfd;
+                border-radius: 50%;
+                box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
+              }
+              .signIn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: calc(100% - 58rpx - 12rpx);
+                .addNum {
+                  padding-bottom: 20rpx;
+                  font-size: 24rpx;
+                  color: #b99652;
+                }
+                .iconfont {
+                  position: relative;
+                  width: 32rpx;
+                  height: 32rpx;
+                  overflow: hidden;
+                  font-size: 32rpx;
+                  line-height: 32rpx;
+                  text-align: center;
+                }
+              }
+            }
+            .null {
+              width: calc(100% - 14rpx * 2);
+              height: 132rpx;
+            }
+            &.now {
+              .bg {
+                background-color: #227351;
+                .day {
+                  font-weight: 600;
+                  color: #227351;
+                }
+                .signIn {
+                  .addNum {
+                    color: #fff;
+                  }
+                  .iconfont {
+                    color: #fff;
+                    .trueMove {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      background-color: #227351;
+                      -webkit-animation: trueMove 1s 1;
+                      animation: trueMove 1s 1;
+                      /* 动画结束应用于元素 */
+                      -webkit-animation-fill-mode: forwards;
+                      animation-fill-mode: forwards;
+                      @keyframes trueMove {
+                        from {
+                          left: 0;
+                        }
+                        to {
+                          left: 32rpx;
+                        }
+                      }
+                      /*Safari 和 Chrome:*/
+                      @-webkit-keyframes trueMove {
+                        from {
+                          left: 0;
+                        }
+                        to {
+                          left: 32rpx;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            &.grey {
+              .bg {
+                background-color: #eef0f2;
+                .day {
+                  color: #999999;
+                }
+                .signIn {
+                  .addNum {
+                    color: #999999;
+                  }
+                  .iconfont {
+                    color: #999999;
+                  }
+                }
+              }
+            }
+            &.overDaySignIn {
+              .bg {
+                background-color: #daf2e8;
+                .day {
+                  color: #739989;
+                }
+                .signIn {
+                  .addNum {
+                    color: #999999;
+                  }
+                  .iconfont {
+                    color: #7db29c;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .signInRewards {
+        padding-bottom: 60rpx;
+        .t {
+          display: flex;
+          padding: 0 28rpx;
+          .name {
+            font-size: 32rpx;
+            font-weight: 600;
+            line-height: 44rpx;
+            color: #000000;
+          }
+          .dis {
+            margin-left: auto;
+            font-size: 24rpx;
+            line-height: 34rpx;
+            color: #666666;
+            .day {
+              margin-left: 10rpx;
+              color: #227351;
+            }
+          }
+        }
+        .c {
+          height: 202rpx;
+          padding: 22rpx 26rpx 0;
+          .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .iconfont {
+              width: 100rpx;
+              height: 100rpx;
+              font-size: 46rpx;
+              line-height: 100rpx;
+              color: #d2a784;
+              text-align: center;
+              background-color: #fffaf2;
+              border-radius: 50%;
+            }
+            .add {
+              margin-top: 6rpx;
+              line-height: 40rpx;
+              color: #000;
+            }
+            .addCondition {
+              font-size: 24rpx;
+              line-height: 34rpx;
+              color: #666;
+            }
+            &.signIn {
+              .add {
+                color: #227351;
+              }
+              .addCondition {
+                color: #99ccb7;
+              }
+            }
+          }
+        }
+        .signInButZw {
+          width: 100%;
+          height: 0;
+        }
+        .but {
+          margin-top: 36rpx;
+          .button {
+            width: calc(100% - 56rpx * 2);
+            height: 100rpx;
+            margin: 0 auto;
+            border-radius: 50rpx;
+            &.success {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 32rpx;
+              font-weight: 600;
+              color: #227351;
+              background-color: #f5f5f5;
+              .iconfont {
+                position: relative;
+                width: 40rpx;
+                height: 40rpx;
+                margin-right: 20rpx;
+                overflow: hidden;
+                font-size: 40rpx;
+                line-height: 40rpx;
+                text-align: center;
+                .trueMove {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: #f5f5f5;
+                  -webkit-animation: trueMove 1s 1;
+                  animation: trueMove 1s 1;
+                  /* 动画结束应用于元素 */
+                  -webkit-animation-fill-mode: forwards;
+                  animation-fill-mode: forwards;
+                  @keyframes trueMove {
+                    from {
+                      left: 0;
+                    }
+                    to {
+                      left: 40rpx;
+                    }
+                  }
+                  /*Safari 和 Chrome:*/
+                  @-webkit-keyframes trueMove {
+                    from {
+                      left: 0;
+                    }
+                    to {
+                      left: 40rpx;
+                    }
+                  }
+                }
+              }
+            }
+            &.un-occurred {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              font-size: 32rpx;
+              font-weight: 600;
+              color: #fff;
+              background-color: #227351;
+              .dis {
+                font-size: 24rpx;
+                font-weight: 400;
+              }
+            }
+          }
+          &.signInButPositionState {
+            position: fixed;
+            bottom: 50rpx;
+            left: 0;
+            width: 100%;
+            -webkit-animation: signInButPositionMove 0.4s 1;
+            animation: signInButPositionMove 0.4s 1;
+            /* 动画结束应用于元素 */
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            @keyframes signInButPositionMove {
+              from {
+                bottom: -150rpx;
+              }
+              to {
+                bottom: 50rpx;
+              }
+            }
+            /*Safari 和 Chrome:*/
+            @-webkit-keyframes signInButPositionMove {
+              from {
+                bottom: -150rpx;
+              }
+              to {
+                bottom: 50rpx;
+              }
+            }
+            .button {
+              box-shadow: 0 0 3rpx 6rpx rgba(0, 0, 0, 0.18);
+            }
+          }
+        }
+        .remind {
+          display: flex;
+          align-items: center;
+          padding: 0 30rpx;
+          margin-top: 38rpx;
+          .qdBut {
+            display: flex;
+            align-items: center;
+            .text {
+              margin-right: 14rpx;
+              font-size: 24rpx;
+              line-height: 34rpx;
+              color: #666666;
+            }
+          }
+          .expand {
+            display: flex;
+            align-items: center;
+            height: 36rpx;
+            margin-left: auto;
+            font-size: 24rpx;
+            color: #666666;
+            .iconfont {
+              margin-left: 16rpx;
+              font-size: 20rpx;
+              color: #d8d8d8;
+            }
+          }
+        }
+      }
+    }
+  }
+  .doTasks {
+    width: calc(100% - 24rpx * 2);
+    margin: 48rpx auto 0;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 16rpx;
+    box-shadow: inset 0px 0px 10px 0px #ffffff;
+    .title {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100rpx;
+      padding: 0 32rpx;
+      background: linear-gradient(180deg, #e9fdf5 0%, #ffffff 95%);
+      .text {
+        font-size: 32rpx;
+        font-weight: 600;
+        color: #000000;
+      }
+      .rightBut {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        .icon {
+          width: 32rpx;
+          height: 32rpx;
+        }
+        .name {
+          margin-left: 16rpx;
+          line-height: 28rpx;
+          color: #333333;
+        }
+        .jt {
+          margin-left: 24rpx;
+          font-size: 24rpx;
+          line-height: 28rpx;
+          color: #000000;
+        }
+      }
+    }
+  }
+}
+.signInSuccessTc {
+  .signInSuccess {
+    position: relative;
+    width: 630rpx;
+    height: 633rpx;
+    padding: 198rpx 16rpx 16rpx;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 100% auto;
+    .close {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 74rpx;
+      height: 74rpx;
+      font-size: 32rpx;
+      font-weight: 600;
+      line-height: 66rpx;
+      color: #fff;
+      text-align: center;
+      border: 4rpx solid #fff;
+      border-radius: 50%;
+    }
+    .signInAgain {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      height: 74rpx;
+      padding: 0 30rpx;
+      font-weight: 600;
+      line-height: 74rpx;
+      color: #fff;
+      text-align: center;
+      background-color: #227350;
+      border-radius: 38rpx;
+      transform: translateX(-50%);
+    }
+    .text {
+      margin-top: 50rpx;
+      font-size: 30rpx;
+      font-weight: 600;
+      line-height: 42rpx;
+      color: #333;
+      text-align: center;
+    }
+    .box {
+      display: flex;
+      align-items: center;
+      width: calc(100% - 30rpx * 2);
+      padding: 16rpx 20rpx;
+      margin: 40rpx auto;
+      background-color: #f6f7fc;
+      border-radius: 20rpx;
+      .iconfont {
+        width: 100rpx;
+        height: 100rpx;
+        font-size: 40rpx;
+        line-height: 100rpx;
+        color: #d2a784;
+        text-align: center;
+        background-color: #ece7e0;
+        border-radius: 50%;
+      }
+      .num {
+        margin-left: 22rpx;
+        font-size: 30rpx;
+      }
+      .but {
+        height: 50rpx;
+        padding: 0 26rpx;
+        margin-left: auto;
+        font-size: 22rpx;
+        line-height: 46rpx;
+        color: #227350;
+        text-align: center;
+        border: 2rpx solid #227350;
+        border-radius: 25rpx;
+      }
+    }
+  }
+}
+.ruleBox {
+  position: fixed;
+  top: 248rpx;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 42rpx;
+  height: 66rpx;
+  font-size: 22rpx;
+  line-height: 24rpx;
+  color: #fff;
+  text-align: center;
+  background-color: #768981;
+  border-radius: 8rpx 0 0 8rpx;
+}

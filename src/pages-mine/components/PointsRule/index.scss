@@ -1,0 +1,32 @@
+.ruleBoxTc {
+  width: calc(100% - 22rpx * 2);
+  height: calc(100% - var(--window-bottom) - 40rpx);
+  padding: 28rpx;
+  margin: 0 auto;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 16rpx;
+  :deep(.p),
+  :deep(.span) {
+    margin-bottom: 18px;
+    font-family:
+      SourceHanSansCN Regular,
+      PingFang SC,
+      Microsoft YaHei,
+      Helvetica Neue,
+      Helvetica,
+      Tahoma,
+      Arial,
+      sans-serif !important;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    color: #444444 !important;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  :deep(.img) {
+    width: 100% !important;
+    height: auto !important;
+  }
+}

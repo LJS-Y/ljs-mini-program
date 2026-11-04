@@ -1,0 +1,126 @@
+.formBox {
+  padding: 0 24rpx;
+  .item {
+    display: flex;
+    align-items: center;
+    min-height: 108rpx;
+    padding: 0 26rpx 0 22rpx;
+    margin-bottom: 20rpx;
+    background-color: #fff;
+    border-radius: 16rpx;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .title {
+      width: 150rpx;
+      color: #1a1a1a;
+    }
+    .inputBox {
+      position: relative;
+      width: calc(100% - 150rpx);
+      .input {
+        position: relative;
+        z-index: 1;
+        padding-right: 48rpx;
+        font-size: 26rpx;
+        color: #000;
+        &.paddR_150 {
+          padding-right: 150rpx;
+        }
+        &.paddR_48 {
+          padding-right: 48rpx;
+        }
+      }
+      > .picker {
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
+        font-size: 26rpx;
+        .pickerCon {
+          padding-right: 50rpx;
+        }
+        .xjt {
+          position: absolute;
+          top: 0;
+          right: 20rpx;
+        }
+      }
+      .textarea {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        padding: 20rpx 48rpx 20rpx 0;
+        font-size: 26rpx;
+        color: #000;
+      }
+      .closeIcon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 2;
+        width: 48rpx;
+        height: 48rpx;
+        font-size: 26rpx;
+        line-height: 48rpx;
+        color: #999999;
+        text-align: center;
+        transform: translateY(-50%);
+      }
+      .rightIcon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 2;
+        width: 48rpx;
+        height: 48rpx;
+        line-height: 48rpx;
+        color: #999999;
+        text-align: center;
+        transform: translateY(-50%);
+      }
+      .wxBut {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        font-size: 26rpx;
+        color: #000;
+        transform: translateY(-50%);
+        .iconfont {
+          margin-right: 10rpx;
+          font-size: 30rpx;
+          color: #12a917;
+        }
+      }
+    }
+  }
+  .defaultAddr {
+    display: flex;
+    align-items: center;
+    font-size: 26rpx;
+    color: #666;
+    .iconfont {
+      box-sizing: border-box;
+      width: 28rpx;
+      height: 28rpx;
+      margin-right: 6rpx;
+      font-size: 22rpx;
+      line-height: 28rpx;
+      color: transparent;
+      text-align: center;
+      border: 2rpx solid #ccc;
+      border-radius: 50%;
+    }
+    &.active {
+      .iconfont {
+        color: #fff;
+        background-color: #227351;
+        border-color: #227351;
+      }
+    }
+  }
+}
